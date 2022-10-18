@@ -21,8 +21,7 @@ class NumMatrix:
         #print(self.premat)
         else:
             summ=self.premat[row2][col2]
-        if len(self.premat)==1 and len(self.premat[0])==1:
-            return self.premat[0][0]
+        
         return summ                         
         
 
