@@ -1,13 +1,32 @@
 class NumMatrix:
 
     def __init__(self, matrix: List[List[int]]):
-        self.dp=[[0] * (len(matrix[0])+1) for _ in range(len(matrix)+1)]
-        
-		# calculate prefix sum
-        for r in range(len(self.dp)-1):
-            for c in range(len(self.dp[0])-1):
-                self.dp[r+1][c+1]=matrix[r][c] + self.dp[r][c+1] + self.dp[r+1][c] - self.dp[r][c]
-        
+        self.premat=[[matrix[i][j] for j in range(len(matrix[0]))] for i in range(len(matrix))]
+        for i in range(len(matrix)):
+            for j in range(1,len(matrix[0])):
+                self.premat[i][j]=self.premat[i][j]+self.premat[i][j-1]
+        for j in range(len(matrix[0])):
+            for i in range(1,len(matrix)):
+                self.premat[i][j]=self.premat[i][j]+self.premat[i-1][j]        
+        print(self.premat)        
+
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
-        return self.dp[row2+1][col2+1] - self.dp[row1][col2+1] - self.dp[row2+1][col1] + self.dp[row1][col1]
-                
+        summ=0
+        if row1-1>=0 and col1-1>=0: 
+            summ=self.premat[row2][col2]-self.premat[row1-1][col2]-self.premat[row2][col1-1]+self.premat[row1-1][col1-1]
+        elif row1-1>=0:
+            summ=self.premat[row2][col2]-self.premat[row1-1][col2]
+        elif col1-1>=0:
+            summ=self.premat[row2][col2]-self.premat[row2][col1-1]    
+        #print(self.premat)
+        else:
+            summ=self.premat[row2][col2]
+        if len(self.premat)==1 and len(self.premat[0])==1:
+            return self.premat[0][0]
+        return summ                         
+        
+
+
+# Your NumMatrix object will be instantiated and called as such:
+# obj = NumMatrix(matrix)
+# param_1 = obj.sumRegion(row1,col1,row2,col2)
