@@ -11,6 +11,8 @@ class Solution:
                 else:
                     fact.append(i)
                 summ=summ+i+num//i
+                if len(fact)>4:
+                    break
         #print(fact)        
         if len(fact)==4:
             return summ
