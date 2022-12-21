@@ -3,11 +3,7 @@ class Solution:
         if pos==n-1:
             res.append(nums[:])
             return 
-        s=set()
-        for i in range(pos,n):
-            if nums[i] in s:
-                continue
-            s.add(nums[i])    
+        for i in range(pos,n):  
             nums[i],nums[pos]=nums[pos],nums[i]
             self.rec(pos+1,nums,ans,res,n)
             nums[i],nums[pos]=nums[pos],nums[i]
