@@ -1,20 +1,22 @@
 class Solution:
-    def rec(self,nums,ans,res,n,s):
-        if len(ans)==n:
-            if tuple(ans) not in s: 
-                res.append(ans)
-                s.add(tuple(ans))
-            return
-        for i in range(len(nums)):
-            temp=nums[i]
-            nums.pop(i)
-            self.rec(nums,ans+[temp],res,n,s)
-            nums.insert(i,temp)
+    def rec(self,pos,nums,ans,res,n):
+        if pos==n-1:
+            res.append(nums[:])
+            return 
+        s=set()
+        for i in range(pos,n):
+            if nums[i] in s:
+                continue
+            s.add(nums[i])    
+            nums[i],nums[pos]=nums[pos],nums[i]
+            self.rec(pos+1,nums,ans,res,n)
+            nums[i],nums[pos]=nums[pos],nums[i]
+            
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         res=[]
         ans=[]
-        s=set()
-        self.rec(nums,ans,res,len(nums),s)
+        n=len(nums)
+        pos=0
+        self.rec(pos,nums,ans,res,n)
         return res
-        
         
