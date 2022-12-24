@@ -4,7 +4,7 @@ class Solution:
         start=0
         end=n-1
         while start<=end:
-            mid=(start+end)//2
+            mid=end+(start-end)//2
             if target==nums[mid]:
                 return mid
             elif nums[start]<=nums[mid]:
