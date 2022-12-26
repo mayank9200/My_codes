@@ -8,25 +8,22 @@ class Solution:
             start+=1
             end-=1
         return True
-    def rec(self,ip,ans,res,):
+    def rec(self,ip,op,res,):
         if len(ip)==0:
-            res.append(ans[:])
+            res.append(op[:])
             return 
         
         for i in range(len(ip)):   
             first_half=ip[0:i+1]
             second_half=ip[i+1:]
             if self.ispalin(first_half):  
-                ans.append(first_half)
-                self.rec(second_half,ans,res)
-                ans.pop()
+                self.rec(second_half,op+[first_half],res)
 
             
             
         
     def partition(self, s: str) -> List[List[str]]:
-        op=''
         res=[]
-        ans=[]
-        self.rec(s,ans,res)
+        op=[]
+        self.rec(s,op,res)
         return res
