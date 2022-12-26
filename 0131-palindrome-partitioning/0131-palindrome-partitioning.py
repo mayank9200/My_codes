@@ -10,14 +10,16 @@ class Solution:
         return True
     def rec(self,ip,ans,res,):
         if len(ip)==0:
-            res.append(ans)
+            res.append(ans[:])
             return 
         
         for i in range(len(ip)):   
             first_half=ip[0:i+1]
             second_half=ip[i+1:]
             if self.ispalin(first_half):  
-                self.rec(second_half,ans+[first_half],res)
+                ans.append(first_half)
+                self.rec(second_half,ans,res)
+                ans.pop()
 
             
             
