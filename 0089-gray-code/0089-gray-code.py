@@ -7,10 +7,9 @@ class Solution:
         res.append(1)
         for i in range(1,n):
             temp=pow(2,i)
-            ans=[]
-            for j in range(len(res)-1,-1,-1):
-                ans.append(res[j]+temp)
-            res=res+ans
+            l=len(res)
+            for j in range(l-1,-1,-1):
+                res.append(res[j]+temp)
         return res    
             
             
