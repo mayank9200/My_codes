@@ -12,8 +12,7 @@ class Solution:
         #     for j in range(l-1,-1,-1):
         #         res.append(res[j]+temp)
         # return res   
-        if n==0:
-            return [0]
+       
         if n==1:
             return [0,1]
         asf=self.grayCode(n-1)
