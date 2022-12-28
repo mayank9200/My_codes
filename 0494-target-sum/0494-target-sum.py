@@ -10,9 +10,9 @@ class Solution:
               return 0
           if (i, cur_sum) in memo:
             return memo[(i, cur_sum)]
-  
+          count=0
           # Try adding the current number to the expression with a '+' symbol
-          count = self.build_expression(nums, target, i + 1, cur_sum + nums[i], cur_expression + '+' + str(nums[i]),memo)
+          count += self.build_expression(nums, target, i + 1, cur_sum + nums[i], cur_expression + '+' + str(nums[i]),memo)
           # Try adding the current number to the expression with a '-' symbol
           count += self.build_expression(nums, target, i + 1, cur_sum - nums[i], cur_expression + '-' + str(nums[i]),memo)
           memo[(i, cur_sum)] = count
