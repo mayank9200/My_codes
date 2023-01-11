@@ -9,7 +9,7 @@ class Solution:
                 i+=1
             else:
                 ans.append(arr[j])
-                count[0]=count[0]+(mid-i+1)
+                count[0]+=(mid-i+1)
                 j+=1
         while i<=mid:
             ans.append(arr[i])
