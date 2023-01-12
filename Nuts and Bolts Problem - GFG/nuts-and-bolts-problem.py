@@ -12,7 +12,7 @@ class Solution:
                 j -= 1
     
             if i >= j:
-                return j
+                return i
     
             arr[i], arr[j] = arr[j], arr[i]   
             
