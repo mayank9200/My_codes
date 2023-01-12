@@ -1,20 +1,16 @@
 #User function Template for python3
 class Solution:
-    def hpartition(self,arr, low, high):
-        pivot = arr[low]
-        i = low 
-        j = high 
+    def hpartition(self,arr,left,right):
+        pivot=arr[left]
         while True:
-            while arr[i] < pivot:
-                i += 1
-    
-            while arr[j] > pivot:
-                j -= 1
-    
-            if i >= j:
-                return i
-    
-            arr[i], arr[j] = arr[j], arr[i]   
+            while arr[left]<pivot:
+                left+=1
+            while arr[right]>pivot:
+                right-=1
+            if left>=right:
+                return left
+            arr[left],arr[right]=arr[right],arr[left]
+        return left    
             
     def quicksort(self,arr,left,right):
         if right>left:
@@ -26,9 +22,8 @@ class Solution:
 
 	def matchPairs(self,nuts, bolts, n):
 	    self.quicksort(nuts,0,len(nuts)-1)
-	    self.quicksort(bolts,0,len(nuts)-1)
-	    #print(nuts[0]>nuts[1])
-	    return nuts
+        self.quicksort(bolts,0,len(nuts)-1)
+	    return 
 	    
 		# code here
 
