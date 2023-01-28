@@ -14,7 +14,6 @@ class Solution:
                 while s[j]!=s[i]:
                     d.remove(s[i])
                     i+=1
-                d.remove(s[i])
                 d.add(s[j])
                 i+=1
                 j+=1
