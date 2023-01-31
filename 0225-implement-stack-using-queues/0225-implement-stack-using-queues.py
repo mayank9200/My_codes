@@ -6,14 +6,11 @@ class MyStack:
         
 
     def push(self, x: int) -> None:
-        sq=deque()
-        while len(self.s)>0:
-            val=self.s.popleft()
-            sq.append(val)
+        i=0
         self.s.append(x)
-        while len(sq)>0:
-            val=sq.popleft()
-            self.s.append(val)
+        while i<len(self.s)-1:
+            self.s.append(self.s.popleft())
+            i+=1
             
         
 
