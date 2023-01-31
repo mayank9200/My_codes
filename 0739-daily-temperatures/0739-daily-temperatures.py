@@ -14,7 +14,7 @@ class Solution:
                 while len(s)>0 and temperatures[s[0]]<=temperatures[i]:
                     s.popleft()
                 if len(s)==0:
-                    ans.append(-1)
+                    ans.append(i)
                 else:
                     ans.append(s[0])
             s.appendleft(i)
