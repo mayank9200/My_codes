@@ -20,9 +20,6 @@ class Solution:
             s.appendleft(i)
         ans=ans[::-1]
         for i in range(n):
-            if ans[i]==-1:
-                res.append(0)
-            else:    
-                res.append(ans[i]-i)
+            res.append(ans[i]-i)
         return res    
         
