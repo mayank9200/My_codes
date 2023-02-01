@@ -6,11 +6,11 @@
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         fast = slow = head
-        for _ in range(n):
+        for i in range(n):
             fast = fast.next
-        if not fast:
+        if fast==None: #if fast is the last element 
             return head.next
-        while fast.next:
+        while fast.next!=None:
             fast = fast.next
             slow = slow.next
         slow.next = slow.next.next
