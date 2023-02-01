@@ -11,10 +11,10 @@ class Solution:
             return head
         i=0
         thead=head
-        while i<k-1:
+        while i<k-1: # only to handle the case where length is less than k
             thead=thead.next
-            if thead==None:
-                return head
+            if thead==None: #if before reaching k elements if thead becomes None means elements are less than k
+                return head #dont reverse anything just return head as it is
             i+=1
         prev=None
         curr=head
@@ -25,7 +25,7 @@ class Solution:
             prev=curr
             curr=nextt
             i+=1
-        if nextt!=None:
-            head.next=self.reverseKGroup(nextt,k)
+        if curr!=None:
+            head.next=self.reverseKGroup(curr,k)
         return prev    
         
