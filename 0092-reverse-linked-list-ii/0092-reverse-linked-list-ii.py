@@ -26,7 +26,7 @@ class Solution:
             curr=curr.next
             i+=1
         # print(curr.val)    
-        h1,h2,h3=self.reverse(curr.next,right-left+1)
+        h1,h2,h3=self.reverse(curr.next,right-left+1) # h1= list end,h2=list starting, h3=list end ke baad wala element, copy pe bana ke dekho
         #print(h1.val,h2.val,h3.val)
         curr.next=h2
         h1.next=h3
