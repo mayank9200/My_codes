@@ -13,12 +13,12 @@ class MyLinkedList:
     def get(self, index: int) -> int:
         i=0
         curr=self.head
-        while curr!=None and i<index:
+        while curr!=None and i<index: #move till that index
             curr=curr.next
             i+=1
-        if curr!=None:    
+        if curr!=None:   
             return curr.val
-        else:
+        else:           #index >length of linked list
             return -1
             
         
@@ -36,7 +36,7 @@ class MyLinkedList:
         if self.head==None:
             self.addAtHead(val)
             return
-        while curr!=None and curr.next!=None:
+        while curr!=None and curr.next!=None: 
             curr=curr.next
         curr.next=Node(val)
         return 
@@ -49,14 +49,14 @@ class MyLinkedList:
             self.addAtHead(val)
             return
         curr=self.head
-        while curr!=None and i<index-1:
+        while curr!=None and i<index-1: #move till that indexes previous
             curr=curr.next
             i+=1
         if curr==None:
             return 
-        if curr.next==None:
+        if curr.next==None: #insert at end
             curr.next=Node(val)
-        else:
+        else:   # linking
             temp=Node(val)
             temp.next=curr.next
             curr.next=temp
@@ -72,13 +72,13 @@ class MyLinkedList:
             self.head=self.head.next
             return
         curr=self.head
-        while curr!=None and i<index-1:
+        while curr!=None and i<index-1: #move till indexes previous
             curr=curr.next
             i+=1
         if curr==None:
             return 
-        if curr.next!=None:
-            curr.next=curr.next.next
+        if curr.next!=None: 
+            curr.next=curr.next.next #unlink
         return  
         
 
