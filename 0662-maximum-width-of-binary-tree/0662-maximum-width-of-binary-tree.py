@@ -4,11 +4,14 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
+    #https://www.youtube.com/watch?v=R9qiY7OK9JQ
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        #the key is ki har node ko number dedo just like in heap and in level order traversal last-start+1 ka max is the ans, left=2*i+1,right=2*i+2
         from collections import deque
-        q=deque()
-        q.append([root,0])
+        q=deque() 
+        q.append([root,0]) #[root,position]
         maxx=0
         while len(q)>0:
             size=len(q)
