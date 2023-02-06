@@ -18,13 +18,13 @@ class Solution:
             return head
         h1=head
         slow=head
-        fast=head.next
-        while fast!=None and fast.next!=None:
+        fast=head.next #even me first wala chhiye
+        while fast!=None and fast.next!=None: #find mid
             slow=slow.next
             fast=fast.next.next
         h2=self.rev(slow)
-        slow.next=None
-        while h1!=None and h2!=None:
+        slow.next=None #important, list ko do half me divide
+        while h1!=None and h2!=None: #check both list individually
             if h1.val!=h2.val:
                 return False
             h1=h1.next
