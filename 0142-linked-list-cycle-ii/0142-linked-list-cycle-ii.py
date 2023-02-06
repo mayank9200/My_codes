@@ -15,8 +15,8 @@ class Solution:
                 break
         if second==None or second.next==None:
             return None
-        first=head
-        while first!=second:
+        first=head #start from beginning
+        while first!=second: #when they meet again
             first=first.next
             second=second.next
         return first  
