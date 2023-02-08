@@ -6,39 +6,18 @@
 #         self.right = None
 
 class Solution:
-    #this is basically traversing path solution
-    def findpath(self,root,ans,res,val):
-        if root==None:
-            return 
-        if root.val==val:
-            ans.append(root)
-            res.append(ans)
-            return 
-        
-        if root.left:
-            self.findpath(root.left,ans+[root],res,val)
-        
-        if root.right:
-            self.findpath(root.right,ans+[root],res,val)
-        
-            
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        path1=[]
-        path2=[]
-        ans=[]
-        self.findpath(root,ans,path1,p.val) #find path of p
-        self.findpath(root,ans,path2,q.val) #find path of q
-        path1=path1[0] #list of list to only single list
-        path2=path2[0] #list of list to only single list
-        if path1==[] or path2==[]: #if any one of them is empty
+        if root==None:
             return None
-        m=len(path1)
-        n=len(path2)
-        i=0
-        j=0
-        while i<m and j<n:
-            if path1[i].val!=path2[j].val:
-                break
-            i+=1
-            j+=1
-        return path1[i-1]#last common jo the
+        if root==p or root==q:
+            return root
+        lca1=self.lowestCommonAncestor(root.left,p,q)
+        lca2=self.lowestCommonAncestor(root.right,p,q)
+        if lca1!=None and lca2!=None:
+            return root
+        if lca1==None:
+            return lca2
+        else:
+            return lca1
+            
+        
