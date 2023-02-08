@@ -10,12 +10,12 @@ class Solution:
     def tree(self,preorder,inorder,s,e,d):
         if s>e:
             return None
-        root=TreeNode(preorder[self.preindex])
-        self.preindex+=1
-        inindex=d[root.val]
-        root.left=self.tree(preorder,inorder,s,inindex-1,d)
-        root.right=self.tree(preorder,inorder,inindex+1,e,d)
-        return root
+        root=TreeNode(preorder[self.preindex]) #make it root
+        self.preindex+=1 #traverse preindex
+        inindex=d[root.val] #req value of partition in inindex
+        root.left=self.tree(preorder,inorder,s,inindex-1,d) #left linking
+        root.right=self.tree(preorder,inorder,inindex+1,e,d) #right linking
+        return root #return root
     
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         d={}
