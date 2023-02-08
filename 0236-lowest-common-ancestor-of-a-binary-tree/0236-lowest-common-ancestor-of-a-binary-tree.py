@@ -14,8 +14,10 @@ class Solution:
             ans.append(root)
             res.append(ans)
             return 
+        
         if root.left:
             self.findpath(root.left,ans+[root],res,val)
+        
         if root.right:
             self.findpath(root.right,ans+[root],res,val)
         
@@ -24,11 +26,11 @@ class Solution:
         path1=[]
         path2=[]
         ans=[]
-        self.findpath(root,ans,path1,p.val)
-        self.findpath(root,ans,path2,q.val)
-        path1=path1[0]
-        path2=path2[0]
-        if path1==[] or path2==[]:
+        self.findpath(root,ans,path1,p.val) #find path of p
+        self.findpath(root,ans,path2,q.val) #find path of q
+        path1=path1[0] #list of list to only single list
+        path2=path2[0] #list of list to only single list
+        if path1==[] or path2==[]: #if any one of them is empty
             return None
         m=len(path1)
         n=len(path2)
@@ -39,4 +41,4 @@ class Solution:
                 break
             i+=1
             j+=1
-        return path1[i-1]
+        return path1[i-1]#last common jo the
