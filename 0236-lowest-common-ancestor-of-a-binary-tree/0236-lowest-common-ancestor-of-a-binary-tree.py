@@ -6,6 +6,7 @@
 #         self.right = None
 
 class Solution:
+    #this is basically traversing path solution
     def findpath(self,root,ans,res,val):
         if root==None:
             return 
