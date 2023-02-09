@@ -5,6 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
+    #simple just make cases
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         if root==None:
             return 0
