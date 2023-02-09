@@ -7,6 +7,7 @@
 from typing import Optional, List
 
 class Solution:
+    #dont check this solution its from chatgpt, see the last wrong answer code
     def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
         from collections import deque
         q = deque()
