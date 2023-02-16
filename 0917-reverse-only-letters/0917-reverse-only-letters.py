@@ -15,9 +15,6 @@ class Solution:
             char[i],char[j]=char[j],char[i]
             i+=1
             j-=1
-        ans=''
-        for i in char:
-            ans=ans+i
-        return ans    
+        return ''.join(char)
                 
         
