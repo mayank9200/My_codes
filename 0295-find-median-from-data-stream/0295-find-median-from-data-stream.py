@@ -13,7 +13,7 @@ class MedianFinder:
             heappush(self.minheap,num)
         if len(self.maxheap)==0 or len(self.minheap)==0:
             return
-        if -self.maxheap[0]>self.minheap[0]:
+        if -self.maxheap[0]>self.minheap[0]: #just check top of both heap, maxheap top should be less than min heap top
             t1=-heappop(self.maxheap)
             t2=heappop(self.minheap)
             heappush(self.maxheap,-t2)
@@ -22,7 +22,7 @@ class MedianFinder:
             
         
 
-    def findMedian(self) -> float:
+    def findMedian(self) -> float: #simply find median
         if len(self.maxheap)==len(self.minheap):
             return (-1*self.maxheap[0]+self.minheap[0])/2
         else:
