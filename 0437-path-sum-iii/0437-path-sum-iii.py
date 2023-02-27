@@ -22,7 +22,7 @@ class Solution:
             
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
         d={}
-        d[0]=1
+        d[0]=1 # for the cases of prefix sum as 0, you can also add another if condition instead of this
         count=[0]
         self.solve(root,d,0,targetSum,count)
         return count[0]
