@@ -15,6 +15,7 @@ class Solution:
             self.making_parent(root.right,prev,parent,visited)
             
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+        #make it a graph and burn a leaf wala concept using bfs
         if root==None:
             return []
         if k==0:
