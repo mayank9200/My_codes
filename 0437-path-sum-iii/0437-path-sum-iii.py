@@ -15,9 +15,7 @@ class Solution:
         self.solve(root.left,d,summ,target,count)
         self.solve(root.right,d,summ,target,count)
         d[summ]-=1
-        if d[summ]==0:
-            d.pop(summ)
-            
+        
             
             
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
