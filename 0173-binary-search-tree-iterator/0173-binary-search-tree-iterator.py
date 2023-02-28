@@ -5,8 +5,10 @@
 #         self.left = left
 #         self.right = right
 class BSTIterator:
+    #https://www.youtube.com/watch?v=D2jMcmxU4bs
+    #it is basically inorder traversal of a tree in iterative way using stack
     from collections import deque
-    def insertstack(self,root):
+    def insertstack(self,root): #function to go to extream left
         while root!=None:
             self.s.appendleft(root)
             root=root.left
@@ -18,12 +20,12 @@ class BSTIterator:
         
 
     def next(self) -> int:
-        val=self.s.popleft()
+        val=self.s.popleft() #print the top of stack and push its right to to stack to go till extream left
         self.insertstack(val.right)
         return val.val
         
 
-    def hasNext(self) -> bool:
+    def hasNext(self) -> bool: #if stack is empty or nor
         return len(self.s)
 
         
