@@ -28,7 +28,8 @@ class BSTIterator:
     def hasNext(self) -> bool: #if stack is empty or nor
         return len(self.s)
 
-        
+    #time complexity on avg is O(n)
+    #space will be O(h) as we use stack and maximum it can contain is its depth
 
 
 # Your BSTIterator object will be instantiated and called as such:
