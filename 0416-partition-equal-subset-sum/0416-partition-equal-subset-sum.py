@@ -2,8 +2,8 @@ class Solution:
     def check(self,nums,n,summ,dp):
         if n==0:
             return False
-        if summ<0:
-            return False
+        # if summ<0:
+        #     return False
         if summ==0:
             return True
         if dp[n][summ]!=-1:
