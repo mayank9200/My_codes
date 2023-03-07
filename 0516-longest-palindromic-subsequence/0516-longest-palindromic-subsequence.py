@@ -8,11 +8,10 @@ class Solution:
             dp[m][n]=1+self.solve(s1,s2,m-1,n-1,dp)
         else:
             dp[m][n]=max(self.solve(s1,s2,m-1,n,dp),self.solve(s1,s2,m,n-1,dp))
-        return dp[m][n]
-    
+        return dp[m][n]    
     def longestPalindromeSubseq(self, s: str) -> int:
-        s2=s[::-1]
         m,n=len(s),len(s)
-        dp=[[-1 for i in range(m+1)]for j in range(n+1)]
+        s2=s[::-1]
+        dp=[[-1 for i in range(n+1)] for j in range(m+1)]
         return self.solve(s,s2,m,n,dp)
         
