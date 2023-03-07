@@ -13,17 +13,18 @@ class Solution:
         # m,n=len(s),len(t)
         # dp=[[-1 for i in range(n+1)] for j in range(m+1)]
         # return len(s)==self.solve(s,t,m,n,dp) #if lcs is s and t is s
+        #another way then lcs, two pointer approach
         i=0
         j=0
         m,n=len(s),len(t)
         count=0
         while i<m and j<n:
-            if s[i]==t[j]:
+            if s[i]==t[j]: #if same then increase both
                 count+=1
                 i+=1
                 j+=1
             else:
-                j+=1
+                j+=1 #if not increase only j
         return count==len(s)        
         
         
