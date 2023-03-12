@@ -4,13 +4,11 @@ class Solution:
         ans=max(nums)
         n=len(nums)
         for i in range(n):
-            currmaxx=currmax
-            currmax=max(nums[i]*currmax,nums[i]*currmin,nums[i])
-            currmin=min(nums[i]*currmaxx,nums[i]*currmin,nums[i])
-            
-            #print(currmin,currmax)
-            ans=max(ans,max(currmin,currmax))
-        return ans    
+            currmaxx=currmax #creating a temp because in next line its value changes
+            currmax=max(nums[i]*currmax,nums[i]*currmin,nums[i]) #calculation with previous max subarray product
+            currmin=min(nums[i]*currmaxx,nums[i]*currmin,nums[i]) #calculation with previous min subarray product
+            ans=max(ans,max(currmin,currmax)) #max till now after multiplying both with min and max subarray
+        return ans    #final ans
            
             
             
