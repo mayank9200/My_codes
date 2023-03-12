@@ -1,5 +1,6 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
+        #https://www.youtube.com/watch?v=lXVy6YWFcRM
         currmin,currmax=1,1
         ans=max(nums)
         n=len(nums)
