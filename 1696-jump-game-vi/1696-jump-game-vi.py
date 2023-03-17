@@ -21,7 +21,7 @@ class Solution:
         for i in range(n-2,-1,-1):
             while len(h)>0 and h[0][1]>i+k: #remove the top of heap till we get a value who has index within next k i.e i+k
                 heappop(h)
-            dp[i]=nums[i]+(0 if len(h)==0 else -h[0][0]) #now we need first max value which comes less than index of i+k
+            dp[i]=nums[i]+(0 if len(h)==0 else -h[0][0]) #if len of heap is 0 else the max value we found
             heappush(h,[-dp[i],i])     #push these values in heap
         return dp[0] #it gives max value starting from pos 0
     #TC-O(n*logk)
