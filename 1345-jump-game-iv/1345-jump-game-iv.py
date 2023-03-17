@@ -6,14 +6,16 @@ class Solution:
         q=deque()
         d={}
         n=len(arr)
-        d = defaultdict(list)
         for i, num in enumerate(arr):
-            d[num].append(i)
+            if num not in d:
+                d[num]=[i]
+            else:    
+                d[num].append(i)
         q.append(0)
         jump=0
-        visited=set()
+        visited=set() #for particular index
         visited.add(0)
-        visigrup=set()
+        visigrup=set() #for particular value(to optimize)
         while len(q)>0:
             size=len(q)
             for i in range(size):
@@ -22,41 +24,17 @@ class Solution:
                     return jump
                 first=node+1
                 second=node-1
-                if self.isvalid(first,n) and first not in visited:
+                if self.isvalid(first,n) and first not in visited: #go front
                     q.append(first)
                     visited.add(first)
-                if self.isvalid(second,n) and second not in visited:
+                if self.isvalid(second,n) and second not in visited: #go back
                     q.append(second)
                     visited.add(second)   
-                if arr[node] not in visigrup:
-                    for k in d[arr[node]]:
-                        if k not in visited:
+                if arr[node] not in visigrup: #if that group of value is not visited
+                    for k in d[arr[node]]: # go to all nodes with same values
+                        if k!=node and k not in visited:
                             q.append(k)
-                            visited.add(k)
-                    visigrup.add(arr[node])    
+                            visited.add(k) 
+                    visigrup.add(arr[node])    #group of value is now visited
             jump+=1      
         return -1
-#         def minJumps(self, arr):
-#             n = len(arr)
-#             d = defaultdict(list)
-#             for i, num in enumerate(arr):
-#                 d[num].append(i)
-
-#             queue = deque([(0, 0)])
-#             visited, visited_groups = set(), set()
-
-#             while queue:
-#                 steps, index = queue.popleft()
-#                 if index == n - 1: return steps
-
-#                 for neib in [index - 1, index + 1]:
-#                     if 0 <= neib < n and neib not in visited:
-#                         visited.add(neib)
-#                         queue.append((steps + 1, neib))
-
-#                 if arr[index] not in visited_groups:
-#                     for neib in d[arr[index]]:
-#                         if neib not in visited:
-#                             visited.add(neib)
-#                             queue.append((steps + 1, neib))
-#                     visited_groups.add(arr[index])
