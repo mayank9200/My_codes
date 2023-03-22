@@ -20,11 +20,12 @@ class Solution:
         # return max(dp)        
         
         #trying with help of binary search with LIS
-        def binarysearch(arr,val):
+        #https://www.youtube.com/watch?v=DnR_k51J5PM
+        def binarysearch(arr,val): #function to find number just greater than current
             n=len(arr)
             start=0
             end=len(arr)-1
-            if len(arr)==0 or arr[-1]<val:
+            if len(arr)==0 or arr[-1]<val: #if array is empty or element is grater than last element then just append
                 arr.append(val)
                 return 
             candi=0
@@ -37,18 +38,20 @@ class Solution:
                     end=mid-1
                 else:
                     start=mid+1
-            arr[candi]=val
+            arr[candi]=val #put the value at candidate(value just greater than current)
             return
             
-        envelopes.sort(key= lambda a:(a[0], -a[1]))
+        envelopes.sort(key= lambda a:(a[0], -a[1])) #very important step, sort width in incresing and if width is same than height in decreasing in order to make sure that we can make clear which value to take if heights are same(refer video for better explaination)
+        
+        #now just apply LIS with binary search on heights as we can see that widths are now managed
         arrheight=[]
         lis=[]
         n=len(envelopes)
         for i in range(n):
-            arrheight.append(envelopes[i][1])
+            arrheight.append(envelopes[i][1])  #creating height array
         for i in range(n):
-            binarysearch(lis,arrheight[i])   
-        return len(lis)
+            binarysearch(lis,arrheight[i])   #finding lower bound
+        return len(lis) #len of lis is the ans
         
         
                 
