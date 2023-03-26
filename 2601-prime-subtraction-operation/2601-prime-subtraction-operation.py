@@ -1,16 +1,28 @@
 class Solution:
+    # def findprime(self,n):
+        # ans=[]
+        # is_prime = [True] * (n+1)
+        # is_prime[0] = is_prime[1] = False
+        # for p in range(2, int(n**0.5)+1):
+        #     if is_prime[p]:
+        #         for i in range(p*p, n+1, p):
+        #             is_prime[i] = False
+        # for i in range(2, n+1):
+        #     if is_prime[i]:
+        #         ans.append(i)
+        # return ans    
     def findprime(self,n):
         ans=[]
-        is_prime = [True] * (n+1)
-        is_prime[0] = is_prime[1] = False
-        for p in range(2, int(n**0.5)+1):
-            if is_prime[p]:
-                for i in range(p*p, n+1, p):
-                    is_prime[i] = False
-        for i in range(2, n+1):
-            if is_prime[i]:
-                ans.append(i)
-        return ans        
+        for i in range(2,n+1):
+            count1=0
+            count2=0
+            for j in range(2,int(i**0.5)+1):
+                count1+=1
+                if i%j!=0:
+                    count2+=1
+            if count1==count2:
+                ans.append(i)    
+        return ans    
     def justgreater(self,primes,val):
         start=0
         end=len(primes)-1
@@ -25,6 +37,7 @@ class Solution:
         return candi       
     def primeSubOperation(self, nums: List[int]) -> bool:
         primes=self.findprime(1001)
+        #print(primes)
         for i in range(len(nums)-2,-1,-1):
             counter=0
             val=nums[i]
