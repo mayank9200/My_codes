@@ -11,6 +11,6 @@ class Solution:
         exc=0
         for i in range(1,m+1):
             tinc=inc #just store because its value is getting changed
-            inc=exc+arr[i]
-            exc=max(exc,tinc)
-        return max(inc,exc)    
+            inc=exc+arr[i] #including current
+            exc=max(exc,tinc) #excluding current
+        return max(inc,exc) #max of both of them    
