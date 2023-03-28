@@ -1,4 +1,5 @@
 class Solution:
+    #very easy
     def checkRecord(self, s: str) -> bool:
         counta=0
         countl=0
