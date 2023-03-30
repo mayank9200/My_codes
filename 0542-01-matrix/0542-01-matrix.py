@@ -7,7 +7,7 @@ class Solution:
         m=len(mat)
         n=len(mat[0])
         visited=[[False for i in range(n)]for j in range(m)]
-        ans=[[0 for i in range(n)]for j in range(m)]
+        #mat=[[0 for i in range(n)]for j in range(m)]
         for i in range(m):
             for j in range(n):
                 if mat[i][j]==0:
@@ -20,20 +20,20 @@ class Solution:
                 if self.isvalid(i+1,j,m,n,visited,mat):
                     q.append([i+1,j,count+1])
                     visited[i+1][j]=True
-                    ans[i+1][j]=count+1
+                    mat[i+1][j]=count+1
                 if self.isvalid(i-1,j,m,n,visited,mat):
                     q.append([i-1,j,count+1])
                     visited[i-1][j]=True
-                    ans[i-1][j]=count+1
+                    mat[i-1][j]=count+1
                 if self.isvalid(i,j+1,m,n,visited,mat):
                     q.append([i,j+1,count+1])
                     visited[i][j+1]=True
-                    ans[i][j+1]=count+1
+                    mat[i][j+1]=count+1
                 if self.isvalid(i,j-1,m,n,visited,mat):
                     q.append([i,j-1,count+1])
                     visited[i][j-1]=True    
-                    ans[i][j-1]=count+1
-        return ans           
+                    mat[i][j-1]=count+1
+        return mat           
         
         
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
