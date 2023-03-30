@@ -4,10 +4,10 @@ class Solution:
             return #coming out or grid or invalid position or already visited position
         visited[i][j]=True #make it visited
         #go to all 4 surrounging
-        self.dfs(i+1,j,grid,visited)
-        self.dfs(i-1,j,grid,visited)
-        self.dfs(i,j+1,grid,visited)
-        self.dfs(i,j-1,grid,visited)
+        row=[1,-1,0,0]
+        col=[0,0,1,-1]
+        for k in range(4):    
+            self.dfs(i+row[k],j+col[k],grid,visited)
         return 
         
     def numIslands(self, grid: List[List[str]]) -> int:
