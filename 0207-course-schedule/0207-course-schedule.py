@@ -1,7 +1,9 @@
 class Solution:
     #topological sort to check if there is no cycle in directed graph
+    
+        
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        from collections import deque
+        
         q=deque()
         count=0
         indegree=[0 for i in range(numCourses)] #storing indegrees
