@@ -17,7 +17,7 @@ class Solution:
         count=0
         for i in range(m):
             for j in range(n):
-                if visited[i][j]==False and grid[i][j]=='1': #if valid
+                if visited[i][j]==False and grid[i][j]=='1': 
                     self.dfs(i,j,grid,visited)
                     count+=1
         return count        
