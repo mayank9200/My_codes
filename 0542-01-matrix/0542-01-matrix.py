@@ -7,7 +7,6 @@ class Solution:
         m=len(mat)
         n=len(mat[0])
         visited=[[False for i in range(n)]for j in range(m)]
-        #mat=[[0 for i in range(n)]for j in range(m)]
         for i in range(m):
             for j in range(n):
                 if mat[i][j]==0:
@@ -17,22 +16,15 @@ class Solution:
             size=len(q)
             for _ in range(size):
                 i,j,count=q.popleft()
-                if self.isvalid(i+1,j,m,n,visited,mat):
-                    q.append([i+1,j,count+1])
-                    visited[i+1][j]=True
-                    mat[i+1][j]=count+1
-                if self.isvalid(i-1,j,m,n,visited,mat):
-                    q.append([i-1,j,count+1])
-                    visited[i-1][j]=True
-                    mat[i-1][j]=count+1
-                if self.isvalid(i,j+1,m,n,visited,mat):
-                    q.append([i,j+1,count+1])
-                    visited[i][j+1]=True
-                    mat[i][j+1]=count+1
-                if self.isvalid(i,j-1,m,n,visited,mat):
-                    q.append([i,j-1,count+1])
-                    visited[i][j-1]=True    
-                    mat[i][j-1]=count+1
+                row=[1,-1,0,0]
+                col=[0,0,1,-1]
+                for k in range(4):
+                    nrow=i+row[k]
+                    ncol=j+col[k]
+                    if self.isvalid(nrow,ncol,m,n,visited,mat):
+                        q.append([nrow,ncol,count+1])
+                        visited[nrow][ncol]=True
+                        mat[nrow][ncol]=count+1
         return mat           
         
         
