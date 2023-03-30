@@ -3,12 +3,12 @@ class Solution:
     def dfs(self,i,parent,visited,adj):
         visited[i]=True
         for j in adj[i]:
-            if j!=parent and visited[j]==True:
-                return True
-            else:
-                if visited[j]==False:
-                    if self.dfs(j,i,visited,adj)==True:
+            if visited[j]==False:
+                if self.dfs(j,i,visited,adj)==True:
                         return True
+            elif j!=parent and visited[j]==True:
+                return True
+                    
         return False                
                 
     #Function to detect cycle in an undirected graph.
