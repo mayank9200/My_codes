@@ -5,12 +5,10 @@ class Solution:
         for j in adj[i]:
             if visited[j]==False:
                 if self.dfs(j,i,visited,adj)==True:
-                        return True
+                    return True
             elif j!=parent and visited[j]==True:
                 return True
-                    
-        return False                
-                
+        return False        
     #Function to detect cycle in an undirected graph.
 	def isCycle(self, V: int, adj: List[List[int]]) -> bool:
 	    visited=[False for i in range(V)]
