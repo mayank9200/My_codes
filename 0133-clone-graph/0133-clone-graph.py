@@ -9,6 +9,7 @@ class Node:
 class Solution:
         
     def cloneGraph(self, node: 'Node') -> 'Node':
+        #bfs based
         from collections import deque
         if node==None:
             return None
