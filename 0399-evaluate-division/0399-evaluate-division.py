@@ -1,20 +1,22 @@
 class Solution:
     def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
+        #dfs to calculate product till we reach the destination edge
         def dfs(src,dest,d,visited,prod):
-            if src==dest:
+            if src==dest: #reached destination
                 return prod[0]
             visited.add(src)
             for i in d[src]:
                 if i[0] not in visited:
                     prod[0]=prod[0]*i[1]
-                    tans=dfs(i[0],dest,d,visited,prod)
-                    prod[0]=prod[0]/i[1]
-                    if tans!=-1:
+                    tans=dfs(i[0],dest,d,visited,prod) #see if we are getting any ans
+                    prod[0]=prod[0]/i[1] #backtrack
+                    if tans!=-1: #if answer exist
                         return tans
-            return -1
+            return -1 #else -1
         d={}
       
         n=len(values)
+        #making graph with weights and edges
         for i in range(n):
             if equations[i][0] not in d:
                 d[equations[i][0]]=[[equations[i][1],values[i]]]
