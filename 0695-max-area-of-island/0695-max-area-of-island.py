@@ -1,9 +1,9 @@
 class Solution:
     def dfs(self,i,j,grid,m,n,tans):
-        if i<0 or i>=m or j<0 or j>=n or grid[i][j]==0 or grid[i][j]==-1:
+        if i<0 or i>=m or j<0 or j>=n or grid[i][j]==0 or grid[i][j]==-1: #if going out of range or water is surrounded or visited
             return 
-        tans[0]+=1
-        grid[i][j]=-1
+        tans[0]+=1 #count that cell
+        grid[i][j]=-1 #make it visited
         self.dfs(i+1,j,grid,m,n,tans)
         self.dfs(i,j+1,grid,m,n,tans)
         self.dfs(i-1,j,grid,m,n,tans)
