@@ -1,4 +1,5 @@
 class Solution:
+    #simple dfs will work here
     def dfs(self,src,dest,adj,visited):
         visited[src]=True
         if src==dest:
