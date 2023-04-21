@@ -1,26 +1,20 @@
 class Solution:
-    def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
-        #do aagain
-        visited = [False]*n
-        d = {}
-		#store the undirected edges for both vertices
-        for i in edges:
-            if i[0] in d:
-                d[i[0]].append(i[1])
-            else:
-                d[i[0]] = [i[1]]
-                
-            if i[1] in d:
-                d[i[1]].append(i[0])
-            else:
-                d[i[1]] = [i[0]]
-        #create a queue as we will apply BFS
-        q = [source]
-        while q:
-            curr = q.pop(0)  #pop the first element as we do in queue
-            if curr == destination:  #if its the end then we can return True
+    def dfs(self,src,dest,adj,visited):
+        visited[src]=True
+        if src==dest:
+            return True
+        for i in adj[src]:
+            if visited[i]==False and self.dfs(i,dest,adj,visited)==True:
                 return True
-            elif curr in d and not visited[curr]: #else if it is not the end then check whether its visited or not
-                q.extend(d[curr])  #add the adjacent vertices of the current node to the queue
-            visited[curr] = True  #mark this curr vertex as visited = True, so that we dont visit this vertex again
-        return False  #return False if the queue gets empty and we dont reach the end
+        return False    
+            
+    def validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        adj=[[] for i in range(n)]
+        for i in edges:
+            adj[i[0]].append(i[1])
+            adj[i[1]].append(i[0])
+        visited=[False for i in range(n)]
+        return self.dfs(source,destination,adj,visited)
+        
+        
+        
