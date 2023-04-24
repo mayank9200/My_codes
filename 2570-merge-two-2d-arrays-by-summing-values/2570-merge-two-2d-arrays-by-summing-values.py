@@ -1,5 +1,6 @@
 class Solution:
     def mergeArrays(self, nums1: List[List[int]], nums2: List[List[int]]) -> List[List[int]]:
+        #easy
         i=0
         j=0
         m=len(nums1)
