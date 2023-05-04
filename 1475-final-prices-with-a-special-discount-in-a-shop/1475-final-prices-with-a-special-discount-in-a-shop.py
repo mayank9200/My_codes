@@ -1,5 +1,6 @@
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
+        #next smaller element
         from collections import deque
         s=deque()
         tans=[]
