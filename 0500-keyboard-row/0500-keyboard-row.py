@@ -1,5 +1,7 @@
 class Solution:
     def findWords(self, words: List[str]) -> List[str]:
+        #simple
+        
         d={}
         ans=[]
         s=['qwertyuiop','asdfghjkl','zxcvbnm']
