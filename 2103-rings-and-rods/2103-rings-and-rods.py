@@ -1,5 +1,6 @@
 class Solution:
     def countPoints(self, rings: str) -> int:
+        #easy
         i=0
         n=len(rings)
         ans=0
