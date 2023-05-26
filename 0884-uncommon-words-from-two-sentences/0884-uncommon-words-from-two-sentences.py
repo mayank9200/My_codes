@@ -1,6 +1,6 @@
 class Solution:
     def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
-        
+        #easy
         a1=s1.split(' ')
         a2=s2.split(' ')
         d1={}
