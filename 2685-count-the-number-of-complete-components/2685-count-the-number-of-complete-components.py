@@ -1,5 +1,5 @@
 class Solution:
-    #dfs with number of nodes and edges in a component and then check if it is connected componet egde*egde-1==nodes
+    #dfs with number of nodes and edges in a component and then check if it is connected componet nodes*nodes-1==edges
     def dfs(self,src,adj,visited,counte,countn):
         countn[0]+=1
         visited[src]=True
